@@ -19,8 +19,8 @@ while(cap.isOpened()):
 
     if ret == True:
 
-        # print(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        # print(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        print(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        print(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
         # video will not be greyScaled as it it writing before conversion
         out.write(frame)
