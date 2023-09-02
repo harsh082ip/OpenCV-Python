@@ -1,7 +1,7 @@
 import cv2
 import datetime
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('data from opencv/Megamind.avi')
 print(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 print(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
@@ -15,7 +15,7 @@ while(cap.isOpened()):
         frame = cv2.putText(frame, datet, (10,50), font, 1, (0, 0, 255), 2, cv2.LINE_AA)
         cv2.imshow('frame', frame)
 
-        if cv2.waitKey(1) == ord('q'):
+        if cv2.waitKey(100) == ord('q'):
             break
     else:
         break

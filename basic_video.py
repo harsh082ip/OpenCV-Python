@@ -1,7 +1,7 @@
 import cv2
 
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('data from opencv/Megamind.avi')
 
 # this is a fourcc video code
 fourcc = cv2.VideoWriter.fourcc(*'XVID')
