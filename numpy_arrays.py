@@ -36,3 +36,20 @@ print(arr1.shape)
 row = 3
 col = 2
 print(arr1[row, col])
+
+# print whole column
+print(arr1[:,3])
+
+# print whole row
+print(arr1[3,:])
+
+# range of rows and col
+print(arr1[0:4,0:3])
+print(arr1[0:5 , 0:5])
+
+# modify the range
+arr1[0:5, 0:5] = 1
+print(arr1)
+
+arr4 = arr1.copy()
+print(arr4)
