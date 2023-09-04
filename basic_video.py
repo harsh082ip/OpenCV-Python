@@ -39,3 +39,11 @@ while(cap.isOpened()):
 cap.release()
 out.release()
 cv2.destroyAllWindows()
+
+# .fourcc(*'XVID'): This is a method call on the VideoWriter class. It sets the codec for video compression. The fourcc stands for "four-character code," which is a code used to identify a particular video codec. In this case, 'XVID' is the codec being specified.
+#
+# *'XVID': This part of the code uses the * operator to unpack the characters in the string 'XVID' into separate arguments. This is because the fourcc method expects its arguments to be individual characters.
+#
+# 'XVID' is a commonly used codec for MPEG-4 video compression. It is often used when creating AVI video files.
+
+
