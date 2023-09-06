@@ -6,7 +6,7 @@ img2 = cv2.imread('data from opencv/opencv-logo.png')
 print(img.shape)
 print(img.size)
 print(img.dtype)
-
+#
 b, g, r = cv2.split(img2)
 img = cv2.merge((b, g, r))
 

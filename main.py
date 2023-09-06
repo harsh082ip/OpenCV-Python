@@ -1,16 +1,21 @@
-# This is a sample Python script.
+import cv2
+import datetime
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+cap = cv2.VideoCapture('data from opencv/Megamind.avi')
 
+while(cap.isOpened()):
+    access, frame = cap.read()
+    if access == True:
+        font = cv2.FONT_ITALIC
+        text =  str(datetime.datetime.now())
+        frame = cv2.putText(frame, text, (10, 50), font, 1, (0, 0, 255), 2)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+        cv2.imshow('frame', frame)
 
+        if cv2.waitKey(50) == ord('q'):
+            break
+    else:
+        break
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+cap.release()
+cv2.destroyAllWindows()
