@@ -1,6 +1,7 @@
 ﻿import cv2
 import numpy as np
 
+# dir() is an inbuilt method which will show all class and methods inside cv2 package
 events = [i for i in dir(cv2) if 'EVENT' in i]
 print(events)
 

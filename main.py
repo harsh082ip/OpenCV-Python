@@ -1,21 +1,28 @@
 import cv2
-import datetime
+import numpy as np
 
-cap = cv2.VideoCapture('data from opencv/Megamind.avi')
+events = [i for i in dir(cv2) if 'EVENT' in i]
+print(events)
 
-while(cap.isOpened()):
-    access, frame = cap.read()
-    if access == True:
+def ClickEvent(event, x, y, flags, param):
+    if event == cv2.EVENT_LBUTTONDOWN:
+        print(x, ',', y)
         font = cv2.FONT_ITALIC
-        text =  str(datetime.datetime.now())
-        frame = cv2.putText(frame, text, (10, 50), font, 1, (0, 0, 255), 2)
+        strCor = str(x) + ', ' + str(y);
+        cv2.putText(img, strCor, (x,y), font, 1, (255, 255, 0), 2)
+        cv2.imshow('image', img)
+    if event == cv2.EVENT_RBUTTONDOWN:
+        blue = img[y, x, 0]
+        green = img[y, x, 1]
+        red = img[y, x, 2]
+        font = cv2.FONT_HERSHEY_COMPLEX
+        strBGR = str(blue)+ ',' + str(green) + ',' + str(red)
+        cv2.putText(img, strBGR, (x,y), font, 1, (255, 33, 122), 2)
+        cv2.imshow('image', img)
 
-        cv2.imshow('frame', frame)
 
-        if cv2.waitKey(50) == ord('q'):
-            break
-    else:
-        break
-
-cap.release()
+img = cv2.imread('data from opencv/lena.jpg')
+cv2.imshow('image', img)
+cv2.setMouseCallback('image', ClickEvent)
+cv2.waitKey(0)
 cv2.destroyAllWindows()
