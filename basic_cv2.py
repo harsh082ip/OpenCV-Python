@@ -3,7 +3,7 @@ print(cv2.__version__)
 
 
 # Readinng an image locally and saving in form of indexes
-img = cv2.imread('data from opencv/home.jpg', 1)
+img = cv2.imread('data from opencv/smarties.png', 1)
 print(img)
 
 # Displaying an image using a waitkey of 6000 miliseconds
