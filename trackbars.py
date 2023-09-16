@@ -9,7 +9,7 @@ img = np.zeros((500, 750, 3), np.uint8)
 cv.namedWindow('image')
 
 cv.createTrackbar('B', 'image', 0, 255, do_nothing)
-cv.createTrackbar('G', 'image', 0, 255, do_nothing)
+cv.createTrackbar('G', 'image', 230, 255, do_nothing)
 cv.createTrackbar('R', 'image', 0, 255, do_nothing)
 switch = '0 / 1 : on/off'
 cv.createTrackbar(switch, 'image', 0, 1, do_nothing)
