@@ -1,41 +1,11 @@
 import cv2
-import numpy as np
 
-def do_nothing(x):
-    print(x)
+img = cv2.imread('data from opencv/sudoku.png', 0)
+th2 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 11)
+th3 = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 5)
 
-cap = cv2.VideoCapture('data from opencv/Megamind.avi')
-
-cv2.namedWindow('Tracking')
-cv2.createTrackbar('LH', 'Tracking', 0, 179, do_nothing)
-cv2.createTrackbar('LS', 'Tracking', 0, 255, do_nothing)
-cv2.createTrackbar('LV', 'Tracking', 0, 255, do_nothing)
-cv2.createTrackbar('UH', 'Tracking', 179, 179, do_nothing)
-cv2.createTrackbar('US', 'Tracking', 255, 255, do_nothing)
-cv2.createTrackbar('UV', 'Tracking', 255, 255, do_nothing)
-
-
-while True:
-    access, frame = cap.read()
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-
-    l_h = cv2.getTrackbarPos('LH', 'Tracking')
-    l_s = cv2.getTrackbarPos('LS', 'Tracking')
-    l_v = cv2.getTrackbarPos('LV', 'Tracking')
-    u_h = cv2.getTrackbarPos('UH', 'Tracking')
-    u_s = cv2.getTrackbarPos('US', 'Tracking')
-    u_v = cv2.getTrackbarPos('UV', 'Tracking')
-
-    l_b = np.array([l_h, l_s, l_v])
-    u_b = np.array([u_h, u_s, u_v])
-
-    mask = cv2.inRange(hsv, l_b, u_b)
-    res = cv2.bitwise_and(frame, frame, mask=mask)
-    cv2.imshow('img', frame)
-    cv2.imshow('mask', mask)
-    cv2.imshow('res', res)
-    key = cv2.waitKey(50)
-    if key == 27:
-        break
-
+cv2.imshow('img', img)
+cv2.imshow('th2', th2)
+cv2.imshow('th3', th3)
+cv2.waitKey(0)
 cv2.destroyAllWindows()
